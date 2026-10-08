@@ -147,7 +147,8 @@
   // =========================
   // EDIT THESE SETTINGS
   // =========================
-  const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRWd8_u-E-VmNyU2UgJPR3VElbU0WZhV-s1pTXf4oEiUv_sfTQRBVvMb_j0zDG2HBb/exec"
+;
 
   const steps = [...document.querySelectorAll(".step")];
   const bar = document.getElementById("bar");
@@ -191,7 +192,7 @@
     data.confirmation = fd.get("confirmation")==="on" ? "Confirmed" : "Not confirmed";
     data.timestamp = new Date().toISOString();
 
-    if(GOOGLE_SCRIPT_URL.includes("PASTE_YOUR_")){
+    if(GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbxRWd8_u-E-VmNyU2UgJPR3VElbU0WZhV-s1pTXf4oEiUv_sfTQRBVvMb_j0zDG2HBb/exec")){
       alert("Please add your Google Apps Script Web App URL at the top of this file first.");
       return;
     }
