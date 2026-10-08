@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decipher Academy | School Partnership & Onboarding</title>
+  <style>
+    :root {
+      --blue:#0B78C8; --dark:#12304A; --light:#F4F9FD; --border:#D9E7F2;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:var(--dark);line-height:1.55}
+    .wrap{max-width:900px;margin:0 auto;padding:24px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:0 8px 30px rgba(18,48,74,.08)}
+    .logo{text-align:center;margin-bottom:14px}
+    .logo img{max-width:170px;max-height:80px;object-fit:contain}
+    h1{font-size:30px;text-align:center;margin:8px 0 4px}
+    .subtitle{text-align:center;font-size:17px;color:#537087;margin-bottom:24px}
+    h2{font-size:22px;margin-top:0}
+    .note{background:#F0F7FC;border-left:4px solid var(--blue);padding:14px 16px;border-radius:8px;margin-bottom:20px}
+    label{display:block;font-weight:700;margin:18px 0 7px}
+    input,textarea,select{width:100%;padding:13px 14px;border:1px solid #BCD0DE;border-radius:10px;font:inherit}
+    textarea{min-height:110px;resize:vertical}
+    .option{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:9px 0}
+    .option input{width:auto;margin-top:4px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .step{display:none}.step.active{display:block}
+    .progress{height:8px;background:#E4EEF5;border-radius:99px;overflow:hidden;margin:8px 0 20px}
+    .bar{height:100%;background:var(--blue);width:20%;transition:.2s}
+    .actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+    button{border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer}
+    .back{background:#EAF1F6;color:var(--dark)} .next,.submit{background:var(--blue);color:#fff}
+    .success{display:none;text-align:center;padding:30px 10px}
+    .required::after{content:" *";color:#C0392B}
+    @media(max-width:700px){.grid{grid-template-columns:1fr}.card{padding:20px}h1{font-size:25px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="logo">
+      <img src="https://dummyimage.com/340x140/0B78C8/ffffff&text=DECIPHER+ACADEMY" alt="Decipher Academy logo">
+    </div>
+    <h1>School Partnership & Onboarding Form</h1>
+    <div class="subtitle">Digital Skills Training + School Organisational Platform</div>
+    <div class="note">Thank you for welcoming Decipher Academy. Please complete this form so we can prepare a proposal tailored to your school.</div>
+
+    <div class="progress"><div class="bar" id="bar"></div></div>
+
+    <form id="form">
+      <section class="step active">
+        <h2>1. Visit Feedback</h2>
+        <label class="required">School name</label><input name="schoolName" required>
+        <label class="required">What did you find most valuable about the Decipher Future-Ready Schools Tour?</label><textarea name="visitValue" required></textarea>
+        <label class="required">Which part was most useful for students?</label><textarea name="usefulPart" required></textarea>
+        <label class="required">What stood out about the students' response?</label><textarea name="studentResponse" required></textarea>
+        <label class="required">What made you interested in continuing with Decipher?</label><textarea name="interestReason" required></textarea>
+        <label>What would you like Decipher to help your school achieve?</label><textarea name="schoolGoals"></textarea>
+        <label>What would a successful partnership look like?</label><textarea name="successDefinition"></textarea>
+      </section>
+
+      <section class="step">
+        <h2>2. Digital Skills Training</h2>
+        <label class="required">Which skills are you interested in?</label>
+        <div id="skills">
+          <label class="option"><input type="checkbox" name="skills" value="Coding"> Coding</label><label class="option"><input type="checkbox" name="skills" value="Graphic Design"> Graphic Design</label><label class="option"><input type="checkbox" name="skills" value="Video Editing"> Video Editing</label><label class="option"><input type="checkbox" name="skills" value="AI"> AI</label><label class="option"><input type="checkbox" name="skills" value="Content Creation"> Content Creation</label><label class="option"><input type="checkbox" name="skills" value="Virtual Assistance"> Virtual Assistance</label><label class="option"><input type="checkbox" name="skills" value="Digital Research"> Digital Research</label><label class="option"><input type="checkbox" name="skills" value="Robotics"> Robotics</label>
+          <label class="option"><input type="checkbox" name="skills" value="Other"> Other</label>
+        </div>
+        <label>Other digital skill</label><input name="skillsOther">
+        <label class="required">Student level(s)</label>
+        <label class="option"><input type="checkbox" name="levels" value="Primary"> Primary</label><label class="option"><input type="checkbox" name="levels" value="JSS"> JSS</label><label class="option"><input type="checkbox" name="levels" value="SS"> SS</label>
+        <label>Specific classes</label><input name="specificClasses">
+        <label class="required">Approximate number of students</label><input name="studentCount" type="number" min="0" required>
+        <label class="required">How should the skills be structured?</label>
+        <label class="option"><input type="radio" name="skillStructure" value="Same skill for all selected students" required> Same skill for all selected students</label><label class="option"><input type="radio" name="skillStructure" value="Different skills by age/class" required> Different skills by age/class</label><label class="option"><input type="radio" name="skillStructure" value="We would like Decipher to recommend the best structure" required> We would like Decipher to recommend the best structure</label>
+        <label class="required">Preferred frequency</label>
+        <label class="option"><input type="radio" name="frequency" value="Weekly" required> Weekly</label><label class="option"><input type="radio" name="frequency" value="Twice weekly" required> Twice weekly</label><label class="option"><input type="radio" name="frequency" value="Other" required> Other</label>
+        <label class="required">Preferred session duration</label>
+        <label class="option"><input type="radio" name="duration" value="30 minutes" required> 30 minutes</label><label class="option"><input type="radio" name="duration" value="45 minutes" required> 45 minutes</label><label class="option"><input type="radio" name="duration" value="1 hour" required> 1 hour</label><label class="option"><input type="radio" name="duration" value="Other" required> Other</label>
+        <label>Other session duration</label><input name="durationOther">
+        <label class="required">Preferred training time</label>
+        <label class="option"><input type="radio" name="trainingTime" value="During school hours" required> During school hours</label><label class="option"><input type="radio" name="trainingTime" value="After school" required> After school</label><label class="option"><input type="radio" name="trainingTime" value="Extracurricular period" required> Extracurricular period</label><label class="option"><input type="radio" name="trainingTime" value="Other" required> Other</label>
+        <label>Desired student outcomes</label><textarea name="trainingOutcome"></textarea>
+      </section>
+
+      <section class="step">
+        <h2>3. School Organisational Platform</h2>
+        <label>Which areas would you like to manage digitally?</label>
+        <label class="option"><input type="checkbox" name="platformAreas" value="Student records"> Student records</label><label class="option"><input type="checkbox" name="platformAreas" value="Attendance"> Attendance</label><label class="option"><input type="checkbox" name="platformAreas" value="Academic results/report cards"> Academic results/report cards</label><label class="option"><input type="checkbox" name="platformAreas" value="School fees/payment records"> School fees/payment records</label><label class="option"><input type="checkbox" name="platformAreas" value="Staff records"> Staff records</label><label class="option"><input type="checkbox" name="platformAreas" value="Parent communication"> Parent communication</label><label class="option"><input type="checkbox" name="platformAreas" value="Announcements"> Announcements</label><label class="option"><input type="checkbox" name="platformAreas" value="Academic information"> Academic information</label><label class="option"><input type="checkbox" name="platformAreas" value="Reporting/analytics"> Reporting/analytics</label><label class="option"><input type="checkbox" name="platformAreas" value="All of the above"> All of the above</label>
+        <label>Who should have access?</label>
+        <label class="option"><input type="checkbox" name="users" value="School Management"> School Management</label><label class="option"><input type="checkbox" name="users" value="Administrators"> Administrators</label><label class="option"><input type="checkbox" name="users" value="Teachers"> Teachers</label><label class="option"><input type="checkbox" name="users" value="Students"> Students</label><label class="option"><input type="checkbox" name="users" value="All of the above"> All of the above</label>
+        <div class="grid">
+          <div><label>Approx. students registered</label><input name="platformStudents" type="number" min="0"></div>
+          <div><label>Approx. staff access</label><input name="staffCount" type="number" min="0"></div>
+        </div>
+        <label>Specific features you would like</label><textarea name="features"></textarea>
+        <label>What matters most?</label>
+        <label class="option"><input type="checkbox" name="priorities" value="Keep information in one place"> Keep information in one place</label><label class="option"><input type="checkbox" name="priorities" value="Reduce paperwork/manual processes"> Reduce paperwork/manual processes</label><label class="option"><input type="checkbox" name="priorities" value="Make administration easier"> Make administration easier</label><label class="option"><input type="checkbox" name="priorities" value="Improve parent communication"> Improve parent communication</label><label class="option"><input type="checkbox" name="priorities" value="Make student information easier to access"> Make student information easier to access</label><label class="option"><input type="checkbox" name="priorities" value="Improve reporting and monitoring"> Improve reporting and monitoring</label><label class="option"><input type="checkbox" name="priorities" value="All of the above"> All of the above</label>
+      </section>
+
+      <section class="step">
+        <h2>4. Partnership & Implementation</h2>
+        <label>Ideal digital skills training start</label><input name="trainingStart" placeholder="e.g. November 2026">
+        <label>Ideal platform implementation</label><input name="platformStart" placeholder="e.g. November 2026">
+        <label>Would you prefer both services to start together?</label>
+        <label class="option"><input type="radio" name="sameTime" value="Yes"> Yes</label><label class="option"><input type="radio" name="sameTime" value="No"> No</label><label class="option"><input type="radio" name="sameTime" value="Open to Decipher's recommendation"> Open to Decipher's recommendation</label>
+        <div class="grid">
+          <div><label class="required">Main contact name</label><input name="contactName" required></div>
+          <div><label>Main contact role</label><input name="contactRole"></div>
+        </div>
+        <div class="grid">
+          <div><label>Main contact phone</label><input name="contactPhone"></div>
+          <div><label>Main contact email</label><input name="contactEmail" type="email"></div>
+        </div>
+        <div class="grid">
+          <div><label>Approver name</label><input name="approvalName"></div>
+          <div><label>Approver role</label><input name="approvalRole"></div>
+        </div>
+        <label>School policies, schedules or requirements we should know about</label><textarea name="requirements"></textarea>
+        <label>Anything else before we prepare your proposal?</label><textarea name="additional"></textarea>
+      </section>
+
+      <section class="step">
+        <h2>5. School Confirmation</h2>
+        <label class="required">Name</label><input name="confirmName" required>
+        <label class="required">Role</label><input name="confirmRole" required>
+        <label>Signature / Authorisation</label><input name="signature">
+        <label class="required">Date</label><input name="confirmationDate" type="date" required>
+        <label class="option required"><input type="checkbox" name="confirmation" required> I confirm that the information provided is accurate and that the school is interested in discussing the proposed partnership.</label>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="back" id="back">Back</button>
+        <button type="button" class="next" id="next">Next</button>
+        <button type="submit" class="submit" id="submit" style="display:none">Submit Form</button>
+      </div>
+    </form>
+
+    <div class="success" id="success">
+      <h2>Thank you!</h2>
+      <p>Your school partnership information has been submitted successfully.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // =========================
+  // EDIT THESE SETTINGS
+  // =========================
+  const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  const steps = [...document.querySelectorAll(".step")];
+  const bar = document.getElementById("bar");
+  const back = document.getElementById("back");
+  const next = document.getElementById("next");
+  const submit = document.getElementById("submit");
+  const form = document.getElementById("form");
+  let current = 0;
+
+  function showStep(i){
+    steps.forEach((s,idx)=>s.classList.toggle("active",idx===i));
+    bar.style.width = ((i+1)/steps.length*100)+"%";
+    back.style.visibility = i===0 ? "hidden" : "visible";
+    next.style.display = i===steps.length-1 ? "none" : "inline-block";
+    submit.style.display = i===steps.length-1 ? "inline-block" : "none";
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function validCurrent(){
+    const fields = steps[current].querySelectorAll("input,textarea,select");
+    for(const el of fields){
+      if(!el.checkValidity()){
+        el.reportValidity();
+        return false;
+      }
+    }
+    return true;
+  }
+  function values(name){
+    return [...form.querySelectorAll('[name="'+name+'"]:checked')].map(x=>x.value).join(", ");
+  }
+  next.onclick=()=>{ if(validCurrent() && current<steps.length-1){current++;showStep(current);} };
+  back.onclick=()=>{ if(current>0){current--;showStep(current);} };
+
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if(!validCurrent()) return;
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+
+    ["skills","levels","platformAreas","users","priorities"].forEach(k=>data[k]=values(k));
+    data.confirmation = fd.get("confirmation")==="on" ? "Confirmed" : "Not confirmed";
+    data.timestamp = new Date().toISOString();
+
+    if(GOOGLE_SCRIPT_URL.includes("PASTE_YOUR_")){
+      alert("Please add your Google Apps Script Web App URL at the top of this file first.");
+      return;
+    }
+
+    submit.disabled=true; submit.textContent="Submitting...";
+    try{
+      await fetch(GOOGLE_SCRIPT_URL,{
+        method:"POST",
+        mode:"no-cors",
+        headers:{"Content-Type":"text/plain;charset=utf-8"},
+        body:JSON.stringify(data)
+      });
+      form.style.display="none";
+      document.getElementById("success").style.display="block";
+      window.scrollTo({top:0,behavior:"smooth"});
+    }catch(err){
+      alert("We could not submit the form. Please try again.");
+      submit.disabled=false; submit.textContent="Submit Form";
+    }
+  });
+
+  showStep(0);
+</script>
+</body>
+</html>
